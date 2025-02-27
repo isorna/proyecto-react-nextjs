@@ -11,6 +11,7 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
+      <a href="/login">Ir a Login</a>
       <LoginForm
         saludo={saludo}
         usuario={usuario}
