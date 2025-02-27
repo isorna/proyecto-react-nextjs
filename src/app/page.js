@@ -1,9 +1,22 @@
+'use client'
 import Image from "next/image";
 import styles from "./page.module.css";
+import { useState } from "react";
+import { LoginForm } from "./components/LoginForm";
 
 export default function Home() {
+  const [ saludo, setSaludo ] = useState('hola')
+  const [ usuario, setUsuario ] = useState('')
+  const [ contrasena, setContrasena ] = useState('')
+
   return (
     <div className={styles.page}>
+      <LoginForm
+        saludo={saludo}
+        usuario={usuario}
+        contrasena={contrasena}
+        onSetUsuario={setUsuario}
+        onSetContrasena={setContrasena} />
       <main className={styles.main}>
         <Image
           className={styles.logo}
@@ -13,6 +26,8 @@ export default function Home() {
           height={38}
           priority
         />
+        <p>Usuario: {usuario}</p>
+        <p>Contraseña: {contrasena}</p>
         <ol>
           <li>
             Get started by editing <code>src/app/page.js</code>.
@@ -93,3 +108,4 @@ export default function Home() {
     </div>
   );
 }
+
